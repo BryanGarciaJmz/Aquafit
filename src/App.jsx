@@ -7,7 +7,7 @@ function App() {
       nombre: "Gafas de Natación",
       descripcion: "Protección UV y anti-empañamiento",
   precio: 25.00,
-  imagen: "/images/gafas.jpg"
+  imagen: "images/gafas.jpg"
     },
     {
       id: 2,
@@ -53,8 +53,8 @@ function App() {
   return (
     <>
       <header id="inicio">
-        <h1>Nombre de la página</h1>
-        <p>Tu tienda de artículos deportivos acuáticos</p>
+        <h1>AquaFit</h1>
+        <p>Nada como estar a la moda</p>
       </header>
 
       <nav>
@@ -87,8 +87,8 @@ function App() {
       </main>
 
   <footer id="contacto">
-        <p>Nombre de la página &copy; 2025 - Todos los derechos reservados</p>
-        <p>Email: info@empresa.com | Tel: (XXX) 123-4567</p>
+        <p>AquaFit &copy; 2025 - Todos los derechos reservados</p>
+        <p>Email: info@aquafit.com | Tel: (XXX) 123-4567</p>
       </footer>
     </>
   )
