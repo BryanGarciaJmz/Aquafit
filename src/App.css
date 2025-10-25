@@ -194,7 +194,6 @@ footer p {
   margin: 5px 0;
 }
 
-/* Enlace botón */
 .btn-detalle {
   display: inline-block;
   margin-top: 8px;
@@ -208,7 +207,6 @@ footer p {
   background: #004a73;
 }
 
-/* Detalle de producto */
 .detalle {
   display: grid;
   grid-template-columns: 1fr 1fr;
@@ -219,10 +217,10 @@ footer p {
 
 .detalle-imagen {
   width: 100%;
-  overflow: hidden; /* evita desbordes al hacer zoom */
+  overflow: hidden;
   border-radius: 8px;
   background: #fff;
-  border: 1px solid #e6e6e6; /* mover borde al contenedor */
+  border: 1px solid #e6e6e6;
 }
 
 .detalle-img {
@@ -231,8 +229,8 @@ footer p {
   object-fit: contain;
   background: transparent;
   border: 0;
-  border-radius: 8px; /* coincide con el contenedor */
-  transition: transform 0.35s ease; /* transición para el zoom */
+  border-radius: 8px;
+  transition: transform 0.35s ease;
   will-change: transform;
   transform-origin: center center;
 }
@@ -260,13 +258,11 @@ footer p {
   }
 }
 
-/* Zoom al pasar el mouse en detalle */
 .detalle .detalle-imagen:hover .detalle-img {
   transform: scale(1.15) translateZ(0);
   cursor: zoom-in;
 }
 
-/* Respeta usuarios con movimiento reducido */
 @media (prefers-reduced-motion: reduce) {
   .detalle-img {
     transition: none;

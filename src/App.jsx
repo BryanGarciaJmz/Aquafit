@@ -32,7 +32,6 @@ function HomePage() {
     <main className="container" id="productos">
       <h2>Productos Destacados</h2>
 
-      {/* Filtros (UI sin funcionalidad) */}
       <section className="filtros" aria-label="Filtros de productos">
         <div className="filtros-row">
           <div className="filtro-item">
