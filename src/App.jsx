@@ -31,6 +31,41 @@ function HomePage() {
   return (
     <main className="container" id="productos">
       <h2>Productos Destacados</h2>
+
+      {/* Filtros (UI sin funcionalidad) */}
+      <section className="filtros" aria-label="Filtros de productos">
+        <div className="filtros-row">
+          <div className="filtro-item">
+            <label htmlFor="categoria">Categoría</label>
+            <select id="categoria" defaultValue="">
+              <option value="">Todas</option>
+              <option value="natacion">Natación</option>
+              <option value="surf">Surf</option>
+              <option value="buceo">Buceo</option>
+              <option value="accesorios">Accesorios</option>
+            </select>
+          </div>
+
+          <div className="filtro-item">
+            <label htmlFor="precio">Precio</label>
+            <select id="precio" defaultValue="">
+              <option value="">Todos</option>
+              <option value="-50">Menos de $50</option>
+              <option value="50-100">$50 - $100</option>
+              <option value=">100">Más de $100</option>
+            </select>
+          </div>
+
+          <div className="filtro-item">
+            <label>Tallas</label>
+            <div className="chips">
+              {['Única','S','M','L','XL'].map(t => (
+                <button key={t} type="button" className="chip" aria-pressed="false">{t}</button>
+              ))}
+            </div>
+          </div>
+        </div>
+      </section>
       <div className="productos">
         {products.map((p) => (
           <ProductCard key={p.id} product={p} />

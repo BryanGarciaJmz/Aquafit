@@ -50,10 +50,69 @@ nav a:hover {
   padding: 0 20px;
 }
 
+/* El main ocupa el espacio disponible para empujar el footer */
+main.container {
+  flex: 1 0 auto;
+}
+
+footer {
+  margin-top: auto;
+}
+
 .container h2 {
   color: #0077be;
   font-size: 2rem;
   margin-bottom: 20px;
+}
+
+/* Filtros */
+.filtros {
+  background: #ffffff;
+  border: 1px solid #e6e6e6;
+  border-radius: 8px;
+  padding: 16px;
+  margin-bottom: 20px;
+}
+
+.filtros-row {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+  gap: 16px;
+}
+
+.filtro-item label {
+  display: block;
+  font-size: 0.9rem;
+  color: #555;
+  margin-bottom: 6px;
+}
+
+.filtro-item select {
+  width: 100%;
+  padding: 10px;
+  border: 1px solid #ccc;
+  border-radius: 6px;
+  background: #fff;
+}
+
+.chips {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+}
+
+.chip {
+  background: #fff;
+  border: 1px solid #0077be;
+  color: #0077be;
+  padding: 6px 10px;
+  border-radius: 16px;
+  cursor: pointer;
+  font-size: 0.9rem;
+}
+
+.chip:hover {
+  background: #e9f5ff;
 }
 
 .productos {
@@ -160,15 +219,22 @@ footer p {
 
 .detalle-imagen {
   width: 100%;
+  overflow: hidden; /* evita desbordes al hacer zoom */
+  border-radius: 8px;
+  background: #fff;
+  border: 1px solid #e6e6e6; /* mover borde al contenedor */
 }
 
 .detalle-img {
   width: 100%;
   aspect-ratio: 4 / 3;
   object-fit: contain;
-  background: #fff;
-  border: 1px solid #e6e6e6;
-  border-radius: 8px;
+  background: transparent;
+  border: 0;
+  border-radius: 8px; /* coincide con el contenedor */
+  transition: transform 0.35s ease; /* transición para el zoom */
+  will-change: transform;
+  transform-origin: center center;
 }
 
 .detalle-info h2 {
@@ -192,4 +258,44 @@ footer p {
   .detalle {
     grid-template-columns: 1fr;
   }
+}
+
+/* Zoom al pasar el mouse en detalle */
+.detalle .detalle-imagen:hover .detalle-img {
+  transform: scale(1.15) translateZ(0);
+  cursor: zoom-in;
+}
+
+/* Respeta usuarios con movimiento reducido */
+@media (prefers-reduced-motion: reduce) {
+  .detalle-img {
+    transition: none;
+  }
+}
+
+/* Tallas */
+.tallas {
+  display: flex;
+  gap: 8px;
+  margin-top: 8px;
+  flex-wrap: wrap;
+}
+
+.btn-talla {
+  background: #fff;
+  color: #0077be;
+  border: 1px solid #0077be;
+  padding: 6px 12px;
+  border-radius: 16px;
+  cursor: pointer;
+  font-size: 0.95rem;
+}
+
+.btn-talla:hover {
+  background: #e9f5ff;
+}
+
+.btn-talla.activa {
+  background: #0077be;
+  color: #fff;
 }
