@@ -8,9 +8,13 @@ function Layout({ children }) {
   return (
     <>
       <header id="inicio">
-        <img className="logo" src="/images/logo.png" alt="Logo de AquaFit" />
-        <h1>AquaFit</h1>
-        <p>Tu tienda de artículos deportivos acuáticos</p>
+        <div className="header-row">
+          <img className="logo" src="/images/logo.png" alt="Logo de AquaFit" />
+          <div className="brand">
+            <h1>AquaFit</h1>
+            <p>Tu tienda de artículos deportivos acuáticos</p>
+          </div>
+        </div>
       </header>
 
       <nav>

@@ -24,30 +24,7 @@ body{
   flex-direction:column;
 }
 
-header{
-  background:linear-gradient(135deg,var(--azul-700),var(--azul-500));
-  color:var(--blanco);
-  text-align:center;
-  padding:56px 20px 22px;
-  position:relative;
-  min-height:140px;
-}
-header h1{
-  margin:0 0 6px 0;
-  font-weight:800;
-  letter-spacing:.5px;
-}
-header p{ margin:0; opacity:.95 }
-header .logo{
-  position:absolute;
-  top:12px;
-  left:16px;
-  height:96px;
-  width:auto;
-  display:block;
-  margin:0;
-  filter:drop-shadow(0 10px 20px rgba(0,119,190,.28)) saturate(110%);
-}
+/* header duplicado eliminado; se usa el bloque con .header-row más abajo */
 
 nav{
   display:flex;
@@ -78,18 +55,30 @@ nav a:hover{
   margin:24px auto 28px;
 }
 
-footer{
-  margin-top:auto;
+header{
   background:linear-gradient(135deg,var(--azul-700),var(--azul-500));
   color:var(--blanco);
-  text-align:center;
-  padding:18px 16px;
-  border-top:1px solid rgba(255,255,255,.15);
+  padding:20px;
 }
-footer p{ margin:4px 0 }
-
+.header-row{
+  max-width:min(1100px,92%);
+  margin:0 auto;
+  display:flex;
+  align-items:center;
+  gap:14px;
+}
+.logo{
+  height:80px;
+  width:auto;
+  filter:drop-shadow(0 10px 20px rgba(0,119,190,.28)) saturate(110%);
+}
+.brand h1{
+  margin:0 0 4px 0;
+  font-weight:800;
+  letter-spacing:.5px;
+}
+.brand p{ margin:0; opacity:.95 }
 .filtros{
-  background:var(--blanco);
   border:1px solid #e6f2f8;
   border-radius:14px;
   padding:14px;
@@ -275,3 +264,14 @@ h2{
     left:12px;
   }
 }
+
+/* Footer acuático con ola */
+footer{
+  background:linear-gradient(135deg,var(--azul-700),var(--azul-500));
+  color:var(--blanco);
+  text-align:center;
+  padding:24px 16px 20px;
+  position:relative;
+  margin-top:auto;
+}
+footer p{ margin:4px 0 }
