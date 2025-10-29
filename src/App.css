@@ -27,8 +27,10 @@ body{
 header{
   background:linear-gradient(135deg,var(--azul-700),var(--azul-500));
   color:var(--blanco);
-  padding:28px 20px 22px;
   text-align:center;
+  padding:56px 20px 22px;
+  position:relative;
+  min-height:140px;
 }
 header h1{
   margin:0 0 6px 0;
@@ -36,6 +38,16 @@ header h1{
   letter-spacing:.5px;
 }
 header p{ margin:0; opacity:.95 }
+header .logo{
+  position:absolute;
+  top:12px;
+  left:16px;
+  height:96px;
+  width:auto;
+  display:block;
+  margin:0;
+  filter:drop-shadow(0 10px 20px rgba(0,119,190,.28)) saturate(110%);
+}
 
 nav{
   display:flex;
@@ -254,4 +266,12 @@ h2{
 @media (max-width: 900px){
   .filtros-row{ grid-template-columns:1fr }
   .detalle-grid{ grid-template-columns:1fr }
+}
+@media (max-width: 600px){
+  header{ padding-top:70px }
+  header .logo{
+    height:64px;
+    top:10px;
+    left:12px;
+  }
 }
