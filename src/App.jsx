@@ -1,5 +1,6 @@
 import './App.css'
 import { BrowserRouter, Routes, Route, Link } from 'react-router-dom'
+import Nosotros from './pages/Nosotros';
 import { products } from './data/products'
 import ProductCard from './components/ProductCard'
 import ProductDetail from './pages/ProductDetail'
@@ -19,6 +20,7 @@ function Layout({ children }) {
 
       <nav>
         <Link to="/">Inicio</Link>
+        <Link to="/nosotros">Nosotros</Link>
         <a href="#contacto">Contacto</a>
       </nav>
 
@@ -86,6 +88,7 @@ export default function App() {
         <Routes>
           <Route path="/" element={<HomePage />} />
           <Route path="/producto/:id" element={<ProductDetail />} />
+          <Route path="/nosotros" element={<Nosotros />} />
         </Routes>
       </Layout>
     </BrowserRouter>

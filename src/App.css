@@ -275,3 +275,25 @@ footer{
   margin-top:auto;
 }
 footer p{ margin:4px 0 }
+
+/* Sección Nosotros */
+.about h2{ color:#0b4f6c }
+.about-grid{
+  display:grid;
+  grid-template-columns:repeat(2,1fr);
+  gap:20px;
+  margin-top:12px;
+}
+.about-card{
+  background:var(--blanco);
+  border:1px solid #e6f2f8;
+  border-radius:16px;
+  padding:18px;
+  box-shadow:0 10px 24px rgba(0,119,190,.08);
+}
+.about .values{
+  margin:10px 0 0 18px;
+}
+@media (max-width: 900px){
+  .about-grid{ grid-template-columns:1fr }
+}
