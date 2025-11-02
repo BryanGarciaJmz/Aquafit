@@ -2,9 +2,10 @@ import '../App.css';
 
 export default function Nosotros() {
   return (
-    <main className="container">
+    <main className="container about-container">
       <section className="about">
-        <h2>Nosotros</h2>
+  <h2>Nosotros</h2>
+  <p className="about-hero">Vivimos el agua. Creamos experiencias seguras, sostenibles y divertidas para que más personas disfruten del deporte acuático con productos confiables y un servicio cercano.</p>
         <div className="about-grid">
           <article className="about-card">
             <h3>Nuestra historia</h3>
