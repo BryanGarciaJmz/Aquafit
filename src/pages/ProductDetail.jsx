@@ -51,7 +51,7 @@ export default function ProductDetail() {
           ) : null}
 
           <p className="detalle-descripcion">{product.descripcion}</p>
-          <button className="btn-add">Agregar al carrito</button>
+          <button className="btn-detalle">Agregar al carrito</button>
           <div style={{ marginTop: '16px' }}>
             <Link to="/">Volver a productos</Link>
           </div>

@@ -15,7 +15,9 @@ export default function ProductCard({ product }) {
       </Link>
       <h3>{product.nombre}</h3>
       <p className="precio">${product.precio.toFixed(2)}</p>
-      <Link to={`/producto/${product.id}`} className="btn-detalle">Ver detalle</Link>
+      <div className="producto-actions">
+        <Link to={`/producto/${product.id}`} className="btn-detalle">Ver detalle</Link>
+      </div>
     </div>
   );
 }
