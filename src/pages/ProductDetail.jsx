@@ -33,7 +33,7 @@ export default function ProductDetail() {
           <p className="detalle-precio">${product.precio.toFixed(2)}</p>
 
           {product.tallas?.length ? (
-            <div style={{ margin: '10px 0' }}>
+            <div className="detalle-tallas">
               <strong>Tallas:</strong>
               <div className="tallas">
                 {product.tallas.map((t) => (
@@ -42,6 +42,7 @@ export default function ProductDetail() {
                     type="button"
                     className={`btn-talla ${t === tallaSeleccionada ? 'activa' : ''}`}
                     onClick={() => setTallaSeleccionada(t)}
+                    aria-pressed={t === tallaSeleccionada}
                   >
                     {t}
                   </button>
@@ -51,9 +52,9 @@ export default function ProductDetail() {
           ) : null}
 
           <p className="detalle-descripcion">{product.descripcion}</p>
-          <button className="btn-detalle">Agregar al carrito</button>
-          <div style={{ marginTop: '16px' }}>
-            <Link to="/">Volver a productos</Link>
+          <div className="detalle-actions">
+            <button className="btn-detalle">Agregar al carrito</button>
+            <Link to="/" className="btn-detalle">Volver a productos</Link>
           </div>
         </div>
       </section>

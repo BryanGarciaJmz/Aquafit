@@ -256,7 +256,8 @@ h2{
 }
 .detalle-grid{
   display:grid;
-  grid-template-columns:1.1fr .9fr;
+  grid-template-columns:auto 1fr;
+  align-items:start;
   gap:24px;
 }
 .detalle-imagen{
@@ -265,6 +266,8 @@ h2{
   border-radius:16px;
   overflow:hidden;
   box-shadow:0 10px 24px rgba(0,119,190,.08);
+  width:420px;
+  max-width:100%;
 }
 .detalle-img{
   width:100%;
@@ -300,6 +303,13 @@ h2{
   text-align:center;
 }
 
+/* Detalle: mejoras de tipografía y acciones */
+.detalle-info h2{ margin:0 0 8px 0; color:#0b4f6c }
+.detalle-precio{ font-size:1.4rem; color:#0b4f6c; font-weight:800; margin:8px 0 14px }
+.detalle-tallas{ margin:10px 0 }
+.detalle-descripcion{ margin:12px 0 16px; line-height:1.5 }
+.detalle-actions{ display:flex; gap:10px; flex-wrap:wrap }
+
 @media (max-width: 900px){
   .filtros-row{ grid-template-columns:1fr }
   .detalle-grid{ grid-template-columns:1fr }
@@ -309,6 +319,7 @@ h2{
   .filtros-row{ grid-template-columns:repeat(2,1fr) }
   .productos{ grid-template-columns:repeat(auto-fill,minmax(200px,1fr)) }
   .logo{ height:68px }
+  .detalle-imagen{ width:380px }
 }
 
 /* Tablets portrait */
@@ -318,6 +329,8 @@ h2{
   .brand p{ font-size:.95rem }
   .productos{ grid-template-columns:repeat(auto-fill,minmax(180px,1fr)); gap:14px }
   .producto-actions{ flex-wrap:wrap }
+  .detalle-imagen{ width:340px }
+  .detalle-actions{ flex-direction:row }
 }
 
 /* Móviles */
@@ -336,6 +349,9 @@ h2{
   .producto-actions .btn-add{ width:100% }
   .detalle{ margin:18px auto 24px }
   .detalle-imagen{ margin-bottom:12px }
+  .detalle-imagen{ width:100% }
+  .detalle-actions{ flex-direction:column }
+  .detalle-actions .btn-detalle{ width:100% }
 }
 
 /* Footer acuático con ola */
