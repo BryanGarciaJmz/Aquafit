@@ -304,13 +304,38 @@ h2{
   .filtros-row{ grid-template-columns:1fr }
   .detalle-grid{ grid-template-columns:1fr }
 }
+/* Tablets landscape/pequeños laptops */
+@media (max-width: 1024px){
+  .filtros-row{ grid-template-columns:repeat(2,1fr) }
+  .productos{ grid-template-columns:repeat(auto-fill,minmax(200px,1fr)) }
+  .logo{ height:68px }
+}
+
+/* Tablets portrait */
+@media (max-width: 768px){
+  nav{ gap:10px; flex-wrap:wrap }
+  .brand h1{ font-size:1.6rem }
+  .brand p{ font-size:.95rem }
+  .productos{ grid-template-columns:repeat(auto-fill,minmax(180px,1fr)); gap:14px }
+  .producto-actions{ flex-wrap:wrap }
+}
+
+/* Móviles */
 @media (max-width: 600px){
-  header{ padding-top:70px }
-  header .logo{
-    height:64px;
-    top:10px;
-    left:12px;
-  }
+  .logo{ height:56px }
+  .brand h1{ font-size:1.4rem }
+  .brand p{ font-size:.9rem }
+  .container{ width:min(1100px,94%); margin:18px auto 24px }
+  nav{ gap:8px; padding:10px 12px }
+  .filtros{ padding:12px; border-radius:12px }
+  .chips{ gap:6px }
+  .chip,.btn-talla{ padding:7px 10px }
+  .productos{ grid-template-columns:1fr; gap:14px }
+  .producto-actions{ flex-direction:column }
+  .producto-actions .btn-detalle,
+  .producto-actions .btn-add{ width:100% }
+  .detalle{ margin:18px auto 24px }
+  .detalle-imagen{ margin-bottom:12px }
 }
 
 /* Footer acuático con ola */
