@@ -1,6 +1,7 @@
 import './App.css'
 import { BrowserRouter, Routes, Route, Link } from 'react-router-dom'
 import Nosotros from './pages/Nosotros';
+import Contacto from './pages/Contacto';
 import { products } from './data/products'
 import ProductCard from './components/ProductCard'
 import ProductDetail from './pages/ProductDetail'
@@ -21,12 +22,12 @@ function Layout({ children }) {
       <nav>
         <Link to="/">Inicio</Link>
         <Link to="/nosotros">Nosotros</Link>
-        <a href="#contacto">Contacto</a>
+        <Link to="/contacto">Contacto</Link>
       </nav>
 
       {children}
 
-      <footer id="contacto">
+  <footer id="contacto">
         <p>AquaFit &copy; 2025 - Todos los derechos reservados</p>
         <p>Email: info@aquafit.com | Tel: (555) 123-4567</p>
       </footer>
@@ -89,6 +90,7 @@ export default function App() {
           <Route path="/" element={<HomePage />} />
           <Route path="/producto/:id" element={<ProductDetail />} />
           <Route path="/nosotros" element={<Nosotros />} />
+          <Route path="/contacto" element={<Contacto />} />
         </Routes>
       </Layout>
     </BrowserRouter>
