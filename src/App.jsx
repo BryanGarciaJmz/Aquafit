@@ -1,5 +1,6 @@
 import './App.css'
 import { BrowserRouter, Routes, Route, Link } from 'react-router-dom'
+import { useMemo, useState } from 'react'
 import Nosotros from './pages/Nosotros';
 import Contacto from './pages/Contacto';
 import { products } from './data/products'
@@ -36,6 +37,42 @@ function Layout({ children }) {
 }
 
 function HomePage() {
+  const [categoria, setCategoria] = useState('')
+  const [precio, setPrecio] = useState('')
+  const [tallas, setTallas] = useState(new Set())
+
+  const tallasDisponibles = ['Única','S','M','L','XL']
+
+  const toggleTalla = (t) => {
+    setTallas((prev) => {
+      const next = new Set(prev)
+      if (next.has(t)) next.delete(t); else next.add(t)
+      return next
+    })
+  }
+
+  const resetFiltros = () => {
+    setCategoria('')
+    setPrecio('')
+    setTallas(new Set())
+  }
+
+  const filtrados = useMemo(() => {
+  return products.filter((p) => {
+      if (categoria && p.categoria !== categoria) return false
+      if (precio) {
+        if (precio === '-50' && !(p.precio < 50)) return false
+        if (precio === '50-100' && !(p.precio >= 50 && p.precio <= 100)) return false
+        if (precio === '>100' && !(p.precio > 100)) return false
+      }
+      if (tallas.size > 0) {
+        const tiene = p.tallas?.some((t) => tallas.has(t))
+        if (!tiene) return false
+      }
+      return true
+    })
+  }, [categoria, precio, tallas])
+
   return (
     <main className="container" id="productos">
       <h2>Productos Destacados</h2>
@@ -44,7 +81,7 @@ function HomePage() {
         <div className="filtros-row">
           <div className="filtro-item">
             <label htmlFor="categoria">Categoría</label>
-            <select id="categoria" defaultValue="">
+            <select id="categoria" value={categoria} onChange={(e) => setCategoria(e.target.value)}>
               <option value="">Todas</option>
               <option value="natacion">Natación</option>
               <option value="surf">Surf</option>
@@ -55,7 +92,7 @@ function HomePage() {
 
           <div className="filtro-item">
             <label htmlFor="precio">Precio</label>
-            <select id="precio" defaultValue="">
+            <select id="precio" value={precio} onChange={(e) => setPrecio(e.target.value)}>
               <option value="">Todos</option>
               <option value="-50">Menos de $50</option>
               <option value="50-100">$50 - $100</option>
@@ -66,15 +103,31 @@ function HomePage() {
           <div className="filtro-item">
             <label>Tallas</label>
             <div className="chips">
-              {['Única','S','M','L','XL'].map(t => (
-                <button key={t} type="button" className="chip" aria-pressed="false">{t}</button>
-              ))}
+              {tallasDisponibles.map(t => {
+                const active = tallas.has(t)
+                return (
+                  <button
+                    key={t}
+                    type="button"
+                    className="chip"
+                    aria-pressed={active}
+                    onClick={() => toggleTalla(t)}
+                  >
+                    {t}
+                  </button>
+                )
+              })}
             </div>
           </div>
         </div>
+        <div className="form-actions" style={{ marginTop: 12 }}>
+          <button type="button" className="btn-detalle" onClick={resetFiltros}>
+            Limpiar filtros
+          </button>
+        </div>
       </section>
       <div className="productos">
-        {products.map((p) => (
+        {filtrados.map((p) => (
           <ProductCard key={p.id} product={p} />
         ))}
       </div>
