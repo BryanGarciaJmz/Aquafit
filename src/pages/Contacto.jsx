@@ -11,23 +11,25 @@ export default function Contacto() {
       <h2>Contacto</h2>
       <p className="contact-hero">¿Tienes dudas o sugerencias? Escríbenos y con gusto te ayudamos.</p>
       <section className="contact-card">
-        <form onSubmit={(e) => e.preventDefault()} aria-label="Formulario de contacto">
+    <h3 className="contact-title">Envíanos un mensaje</h3>
+    <p className="form-note">Los campos marcados con <span className="req">*</span> son obligatorios.</p>
+    <form onSubmit={(e) => e.preventDefault()} aria-label="Formulario de contacto" noValidate>
           <div className="form-grid">
             <div className="form-field">
-              <label htmlFor="nombre">Nombre</label>
-              <input id="nombre" name="nombre" type="text" className="form-control" placeholder="Tu nombre" value={form.nombre} onChange={onChange} />
+      <label htmlFor="nombre">Nombre <span className="req">*</span></label>
+      <input id="nombre" name="nombre" type="text" className="form-control" placeholder="Tu nombre" value={form.nombre} onChange={onChange} required aria-required="true" />
             </div>
             <div className="form-field">
-              <label htmlFor="email">Correo electrónico</label>
-              <input id="email" name="email" type="email" className="form-control" placeholder="tucorreo@ejemplo.com" value={form.email} onChange={onChange} />
+      <label htmlFor="email">Correo electrónico <span className="req">*</span></label>
+      <input id="email" name="email" type="email" className="form-control" placeholder="tucorreo@ejemplo.com" value={form.email} onChange={onChange} required aria-required="true" />
             </div>
             <div className="form-field form-span-2">
               <label htmlFor="asunto">Asunto</label>
-              <input id="asunto" name="asunto" type="text" className="form-control" placeholder="Motivo de tu mensaje" value={form.asunto} onChange={onChange} />
+      <input id="asunto" name="asunto" type="text" className="form-control" placeholder="Motivo de tu mensaje" value={form.asunto} onChange={onChange} />
             </div>
             <div className="form-field form-span-2">
-              <label htmlFor="mensaje">Mensaje</label>
-              <textarea id="mensaje" name="mensaje" className="form-control" rows={6} placeholder="Cuéntanos en qué podemos ayudarte" value={form.mensaje} onChange={onChange} />
+      <label htmlFor="mensaje">Mensaje <span className="req">*</span></label>
+      <textarea id="mensaje" name="mensaje" className="form-control" rows={6} placeholder="Cuéntanos en qué podemos ayudarte" value={form.mensaje} onChange={onChange} required aria-required="true" />
             </div>
           </div>
           <div className="form-actions">
